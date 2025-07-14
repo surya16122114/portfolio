@@ -6,17 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { experiences } from "@/data/experience";
-import { useState } from "react";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export function ExperienceTimeline() {
-  const [activeTab, setActiveTab] = useState<string>("all");
-  
-  // Filter experiences based on active tab
-  const filteredExperiences = activeTab === "all" 
-    ? experiences 
-    : experiences.filter(exp => exp.type === activeTab);
-
   // Function to get icon based on experience type
   const getExperienceIcon = (type: string | undefined) => {
     switch(type) {
@@ -42,24 +33,13 @@ export function ExperienceTimeline() {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center justify-center space-y-4 text-center"
         >
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+          {/* <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
             Experience
           </h1>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
             My professional journey in development and research
-          </p>
+          </p> */}
         </motion.div>
-        
-        <div className="flex justify-center mt-8">
-          <Tabs defaultValue="all" className="w-full max-w-md">
-            <TabsList className="grid grid-cols-4 w-full">
-              <TabsTrigger value="all" onClick={() => setActiveTab("all")}>All</TabsTrigger>
-              <TabsTrigger value="work" onClick={() => setActiveTab("work")}>Work</TabsTrigger>
-              <TabsTrigger value="leadership" onClick={() => setActiveTab("leadership")}>Leadership</TabsTrigger>
-              <TabsTrigger value="research" onClick={() => setActiveTab("research")}>Research</TabsTrigger>
-            </TabsList>
-          </Tabs>
-        </div>
 
         <div className="mx-auto max-w-3xl mt-12">
           <div className="relative mx-auto">
@@ -67,7 +47,7 @@ export function ExperienceTimeline() {
             <div className="absolute left-1/2 h-full w-[2px] -translate-x-1/2 bg-border" />
 
             {/* Timeline Items */}
-            {filteredExperiences.map((experience, index) => (
+            {experiences.map((experience, index) => (
               <motion.div
                 key={experience.id}
                 initial={{ opacity: 0, y: 20 }}
