@@ -28,7 +28,7 @@ export function Hero() {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [displayedSkills.length]);
 
   // Get icon component for social links
   const getIconComponent = (iconName: string) => {

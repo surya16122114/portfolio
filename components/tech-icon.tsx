@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Code } from 'lucide-react';
+import Image from 'next/image';
 
 interface TechIconProps {
   logoKey: string;
@@ -34,10 +35,12 @@ export function TechIcon({ logoKey, name, className = "h-5 w-5" }: TechIconProps
   }
   
   return (
-    <img 
+    <Image
       src={getIconUrl()}
       alt={`${name} logo`}
       className={`${className} object-contain`}
+      width={32}
+      height={32}
       onError={(e) => {
         const target = e.currentTarget;
         // Try plain version as fallback
@@ -48,6 +51,7 @@ export function TechIcon({ logoKey, name, className = "h-5 w-5" }: TechIconProps
           setImageError(true);
         }
       }}
+      unoptimized
     />
   );
 }

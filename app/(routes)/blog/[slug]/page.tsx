@@ -4,11 +4,10 @@ import { notFound } from "next/navigation";
 import matter from "gray-matter";
 import { marked } from "marked";
 import { CalendarDays } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import "@/styles/mdx.css";
 import { StarsCanvas } from "@/components/star-background";
-import { motion } from "framer-motion";
+
 
 interface FrontMatter {
   title: string;

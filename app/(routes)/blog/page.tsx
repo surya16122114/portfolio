@@ -1,4 +1,4 @@
-import Link from "next/link";
+
 import { getAllBlogSlugs, getBlogBySlug } from "@/lib/blog-data";
 import BlogAnimatedSection from "@/components/BlogAnimatedSection";
 
