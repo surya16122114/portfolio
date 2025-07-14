@@ -28,8 +28,9 @@ export async function generateStaticParams() {
     }));
 }
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const filePath = path.join(process.cwd(), "content/blog", `${params.slug}.md`);
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const filePath = path.join(process.cwd(), "content/blog", `${resolvedParams.slug}.md`);
 
   if (!fs.existsSync(filePath)) return notFound();
 

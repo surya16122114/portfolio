@@ -67,7 +67,7 @@ export function ContactForm() {
       } else {
         alert("There was an error sending your message. Please try again later.");
       }
-    } catch () {
+    } catch {
       alert("There was an error sending your message. Please try again later.");
     } finally {
       setIsSubmitting(false);

@@ -18,14 +18,14 @@ const pageVariants = {
     opacity: 1,
     transition: { 
       duration: 0.3,
-      ease: "easeInOut" 
+      ease: "easeInOut" as const
     }
   },
   exit: { 
     opacity: 0, 
     transition: { 
       duration: 0.2,
-      ease: "easeInOut" 
+      ease: "easeInOut" as const
     } 
   }
 };

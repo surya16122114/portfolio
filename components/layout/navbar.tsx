@@ -82,7 +82,7 @@ export function Navbar() {
       y: 0,
       opacity: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 300,
         damping: 20,
         mass: 0.5,
@@ -94,7 +94,7 @@ export function Navbar() {
       opacity: 0,
       transition: {
         duration: 0.1,
-        ease: "easeInOut"
+        ease: "easeInOut" as const
       }
     }
   };
@@ -108,7 +108,7 @@ export function Navbar() {
       transition: {
         delay: 0.05 * i,
         duration: 0.5,
-        ease: "easeOut"
+        ease: "easeOut" as const
       }
     })
   };
