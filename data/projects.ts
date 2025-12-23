@@ -26,6 +26,7 @@ export const projects: Project[] = [
     ],
     //image: "/images/projects/cloud-native/cloud-native.jpg",
     image:"/images/projects/cloud-native/cloud-native.jpg",
+    github:"https://github.com/chinnasuryaprasad1612/tf-aws-infra",
     featured: true
   },
   {
@@ -61,6 +62,7 @@ export const projects: Project[] = [
     ],
     //image: "/images/projects/student-accommodation/student-accommodation.jpg",
     image:"/images/projects/roomies-radar/roomies-radar.jpg",
+    github:"https://github.com/surya16122114/roomies-radar",
     featured: true
   },
   {
@@ -77,7 +79,8 @@ export const projects: Project[] = [
       "Implemented data pipelines with Airflow for extraction, transformation, and ingestion of educational documents, automating indexing and preprocessing workflows",
       "Deployed full stack application with FastAPI backend and React frontend on AWS (Bedrock for LLM hosting, EC2 for compute, S3 for document storage) using Terraform"
     ],
-    image: "/images/projects/edurag/edurag.jpg",
+    image: "/images/projects/edurag/Edurag.png",
+    github: "https://github.com/surya16122114/immigration-ai-assistant",
     featured: true
   }
 ];
