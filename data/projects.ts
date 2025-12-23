@@ -40,6 +40,7 @@ export const projects: Project[] = [
       "Designed normalized MySQL schema for scalable movie-theater-booking data model"
     ],
     image:"/images/projects/popcornpal/popcornpal.jpg",
+    github: "https://github.com/surya16122114/movie-management",
     featured: true
   },
   {
@@ -60,6 +61,23 @@ export const projects: Project[] = [
     ],
     //image: "/images/projects/student-accommodation/student-accommodation.jpg",
     image:"/images/projects/roomies-radar/roomies-radar.jpg",
+    featured: true
+  },
+  {
+    id: "edurag",
+    title: "EduRAG - AI-Powered Learning Platform",
+    description: "Built an intelligent learning platform with RAG system using LangChain, ChromaDB, and OpenAI APIs, deployed on AWS infrastructure.",
+    longDescription: "Developed a comprehensive AI-powered learning platform that leverages Retrieval-Augmented Generation (RAG) to provide adaptive Q&A aligned with learner progress. Built the RAG system using Python with LangChain framework, ChromaDB vector database, and OpenAI APIs, implementing document upload processing and semantic embeddings. Implemented data pipelines with Airflow for extraction, transformation, and ingestion of educational documents, automating indexing and preprocessing workflows. Deployed the full-stack application with FastAPI backend and React frontend on AWS infrastructure using Terraform, utilizing Bedrock for LLM hosting, EC2 for compute, and S3 for document storage.",
+    technologies: [
+      "Python", "LangChain", "ChromaDB", "OpenAI", "Airflow", "FastAPI", 
+      "React", "AWS", "Bedrock", "EC2", "S3", "Terraform", "RAG", "Vector Database"
+    ],
+    achievements: [
+      "Built RAG system using Python with LangChain framework, ChromaDB vector database, and OpenAI APIs, implementing document upload processing and semantic embeddings for adaptive Q&A aligned with learner progress",
+      "Implemented data pipelines with Airflow for extraction, transformation, and ingestion of educational documents, automating indexing and preprocessing workflows",
+      "Deployed full stack application with FastAPI backend and React frontend on AWS (Bedrock for LLM hosting, EC2 for compute, S3 for document storage) using Terraform"
+    ],
+    image: "/images/projects/edurag/edurag.jpg",
     featured: true
   }
 ];

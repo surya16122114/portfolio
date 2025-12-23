@@ -13,6 +13,21 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    id: "gta-northeastern",
+    title: "Graduate Teaching Assistant",
+    company: "Northeastern University",
+    location: "Boston, MA",
+    startDate: "September 2025",
+    endDate: "Present",
+    description:
+      "Teaching Object-Oriented Design and design patterns to graduate students, facilitating learning through hands-on coding sessions and comprehensive code reviews.",
+    achievements: [
+      "Led a class of 50+ students, teaching Object-Oriented Design and design patterns, conducting 20+ coding sessions",
+      "Reviewed assignments and projects, providing structured feedback and code reviews to improve software quality"
+    ],
+    type: 'education'
+  },
+  {
     id: "swe-optum",
     title: "Software Engineer",
     company: "United Health Group",
