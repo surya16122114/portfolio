@@ -8,59 +8,72 @@ export interface Experience {
   endDate: string;
   description: string;
   achievements: string[];
-  type?: 'work' | 'research' | 'education' | 'leadership';
+  type?: 'work' | 'research' | 'education' | 'leadership' | 'volunteer';
 }
 
 export const experiences: Experience[] = [
+  {
+    id: "humanitarians-ai",
+    title: "AI Software Engineer",
+    company: "Humanitarians AI",
+    location: "Boston, MA",
+    startDate: "Jun 2026",
+    endDate: "Present",
+    description:
+      "Building a production AI education platform at Humanitarians AI — a Boston 501(c)(3) — combining Retrieval-Augmented Generation with LMS integration.",
+    achievements: [
+      "Built a RAG pipeline with a custom Mixture-of-Experts routing layer on GPT-4o-mini, routing student queries to specialist modes and injecting vector-searched textbook sources before inference",
+      "Architected LTI 1.3 and Canvas integration enabling OIDC-based SSO, student provisioning, and grade synchronization via Assignment & Grade Services",
+    ],
+    type: 'volunteer',
+  },
   {
     id: "gta-northeastern",
     title: "Graduate Teaching Assistant",
     company: "Northeastern University",
     location: "Boston, MA",
-    startDate: "September 2025",
-    endDate: "Present",
+    startDate: "Sep 2025",
+    endDate: "Apr 2026",
     description:
-      "Teaching Object-Oriented Design and design patterns to graduate students, facilitating learning through hands-on coding sessions and comprehensive code reviews.",
+      "Taught algorithm implementation, class design, and object-oriented programming in Java to graduate students.",
     achievements: [
-      "Led a class of 50+ students, teaching Object-Oriented Design and design patterns, conducting 20+ coding sessions",
-      "Reviewed assignments and projects, providing structured feedback and code reviews to improve software quality"
+      "Assisted 150+ students with algorithms, class design, and OOP in Java, guiding hands-on labs and improving submission quality by 30%",
+      "Mentored students and peer TAs through 1:1 office hours and code reviews on debugging, design patterns, and refactoring — cutting logical errors in final projects by 25%",
     ],
-    type: 'education'
+    type: 'education',
   },
   {
-    id: "swe-optum",
+    id: "swe-uhg",
     title: "Software Engineer",
-    company: "United Health Group",
+    company: "UnitedHealth Group",
     location: "Hyderabad, India",
-    startDate: "September 2023",
-    endDate: "July 2024",
+    startDate: "Aug 2023",
+    endDate: "Jul 2024",
     description:
-      "Owned key modules in enterprise-scale health tech solutions and led performance and deployment enhancements.",
+      "Owned backend and frontend for a care-advisor communication platform serving 500K+ users.",
     achievements: [
-      "Led the launch of advocacy and health navigation capabilities, achieving market parity within six months and retaining UHC national accounts.",
-      "Architected and deployed scalable APIs using NestJS and GraphQL, integrated with Hasura, improving API performance by 20%.",
-      "Executed comprehensive performance/load testing using NeoLoad and Blue Jay to support 5,000+ concurrent users.",
-      "Resolved 300+ SonarQube issues to maintain high code quality standards and CI/CD readiness.",
-      "Collaborated with 20+ cross-functional team members, accelerating release cycles by 30%, and drove 10+ successful production deployments."
+      "Built a secure microservices-based messaging platform for care advisors with Java and Spring Boot for 500K+ users, increasing system throughput by 50%",
+      "Implemented distributed messaging with Apache Kafka — an event-driven architecture for async member enrollment and downstream services — cutting API response time by 45%",
+      "Reworked search APIs with improved PostgreSQL indexing and pagination, reducing profile lookup time by 70%",
+      "Optimized rendering with React.memo, useMemo, useCallback, and route-based code splitting (React.lazy + Suspense), cutting page load time by 45% and improving Core Web Vitals by 35%",
     ],
-    type: 'work'
+    type: 'work',
   },
   {
-    id: "ase-optum",
+    id: "ase-uhg",
     title: "Associate Software Engineer",
-    company: "United Health Group",
+    company: "UnitedHealth Group",
     location: "Hyderabad, India",
-    startDate: "August 2022",
-    endDate: "August 2023",
+    startDate: "Aug 2022",
+    endDate: "Jul 2023",
     description:
-      "Contributed to full-stack feature development, testing, and quality assurance across key digital health platforms.",
+      "Built responsive frontends and cloud infrastructure for healthcare communication platforms.",
     achievements: [
-      "Engineered key components of a responsive web application for over 500,000 users using Angular, Netra Library, and NestJS.",
-      "Designed the Message Center UI in an Outlook-style format, collaborating with senior engineers to integrate backend APIs.",
-      "Developed unit tests using Jasmine and Jest, contributing to 85% test coverage and helping reduce defects by 40%.",
-      "Used Hasura Console to configure GraphQL APIs and permissions, supporting secure and efficient data access.",
-      "Assisted in resolving 100+ internal tickets and helped maintain 99.9% application uptime through prompt debugging and support."
+      "Built responsive React UIs with reusable components and custom hooks for data fetching and forms, reducing duplicate code by 40%",
+      "Deployed services on AWS and GCP, provisioning infrastructure with Terraform and auto-scaling, cutting infrastructure costs by 15%",
+      "Designed automated deployment with GitHub Actions and Docker, reducing manual deploy effort by 95% and enabling continuous delivery",
+      "Built an OAuth 2.0 + JWT security framework for REST APIs with role-based access control, reducing unauthorized access attempts by 70%",
     ],
-    type: 'work'
-  } 
+    type: 'work',
+  },
 ];

@@ -1,155 +1,105 @@
-// components/layout/footer.tsx
 "use client";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Phone, Copyright, ExternalLink, Heart } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Github, Linkedin, Mail, Phone, ArrowUpRight } from "lucide-react";
 import { socialLinks } from "@/data/social";
 
-export function Footer() {
-  // Get icon component for social links
-  const getIconComponent = (iconName: string) => {
-    switch (iconName) {
-      case "github":
-        return <Github className="h-5 w-5" />;
-      case "linkedin":
-        return <Linkedin className="h-5 w-5" />;
-      case "mail":
-        return <Mail className="h-5 w-5" />;
-      case "phone":
-        return <Phone className="h-5 w-5" />;
-      default:
-        return null;
-    }
-  };
+function getIcon(icon: string) {
+  const cls = "h-[18px] w-[18px]";
+  switch (icon) {
+    case "github":
+      return <Github className={cls} />;
+    case "linkedin":
+      return <Linkedin className={cls} />;
+    case "mail":
+      return <Mail className={cls} />;
+    case "phone":
+      return <Phone className={cls} />;
+    default:
+      return null;
+  }
+}
 
+const quickLinks = [
+  { title: "About", href: "/about" },
+  { title: "Experience", href: "/experience" },
+  { title: "Projects", href: "/projects" },
+  { title: "Contact", href: "/contact" },
+];
+
+export function Footer() {
   return (
-    <footer className="w-full pt-8 pb-4 border-t bg-background/60 backdrop-blur-sm">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
+    <footer className="relative mx-auto w-full max-w-6xl px-6 pb-10 pt-16">
+      {/* CTA */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="container px-4 md:px-6 mx-auto"
+        className="gradient-border glass relative overflow-hidden rounded-[2rem] px-8 py-12 text-center"
       >
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {/* About Section */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold">Chinnasurya Prasad Vulavala</h3>
-            <p className="text-sm text-muted-foreground max-w-xs">
-              Full Stack Developer & Machine Learning Enthusiast based in Boston,
-              specialized in creating modern web applications.
-            </p>
-          </div>
-          
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link 
-                  href="/about" 
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
-                  About Me
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/projects" 
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/blog" 
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <a 
-                  href="/resume.pdf" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
-                >
-                  Resume <ExternalLink className="h-3 w-3" />
-                </a>
-              </li>
-            </ul>
-          </div>
-          
-          {/* Connect */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold">Connect</h3>
-            <div className="flex flex-wrap gap-2">
-              {socialLinks.map((social) => (
-                <Button
-                  key={social.id}
-                  variant="ghost"
-                  size="icon"
-                  asChild
-                  className="rounded-full bg-muted/50 hover:bg-primary/10"
-                >
-                  <a 
-                    href={social.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    aria-label={social.name}
-                  >
-                    {getIconComponent(social.icon)}
-                  </a>
-                </Button>
-              ))}
-            </div>
-          </div>
-          
-          {/* Keyboard Shortcuts */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold">Keyboard Shortcuts</h3>
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <div className="flex gap-1">
-                  <kbd className="px-2 py-1 bg-muted border rounded text-[10px] font-mono">⌘</kbd>
-                  <kbd className="px-2 py-1 bg-muted border rounded text-[10px] font-mono">K</kbd>
-                </div>
-                <span>Search</span>
-              </div>
-              {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <div className="flex gap-1">
-                  <kbd className="px-2 py-1 bg-muted border rounded text-[10px] font-mono">T</kbd>
-                </div>
-                <span>Toggle theme</span>
-              </div> */}
-            </div>
-          </div>
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute left-1/2 top-0 h-64 w-64 -translate-x-1/2 rounded-full bg-violet-600/20 blur-3xl" />
         </div>
-        
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-8 border-t pt-4"
+        <p className="font-mono text-sm text-primary">{"// say hello"}</p>
+        <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight md:text-4xl">
+          Let&apos;s build something great
+        </h2>
+        <p className="mx-auto mt-3 max-w-md text-muted-foreground">
+          Open to SDE / AI Engineer roles and interesting collaborations.
+        </p>
+        <Link
+          href="/contact"
+          className="group mt-7 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-6 py-3 font-medium text-white shadow-lg shadow-violet-500/25 transition-opacity hover:opacity-90"
         >
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center text-sm text-muted-foreground">
-              <Copyright className="mr-1 h-3.5 w-3.5" />
-              <span>{new Date().getFullYear()} Chinnasurya Prasad Vulavala. All rights reserved.</span>
-            </div>
-            <div className="text-sm text-muted-foreground flex items-center gap-1.5">
-              <span>Built with</span>
-              <Heart className="h-3.5 w-3.5 fill-primary text-primary" />
-              <span>using Next.js & Tailwind</span>
-            </div>
-          </div>
-        </motion.div>
+          Get in touch
+          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </Link>
       </motion.div>
+
+      {/* Bottom bar */}
+      <div className="mt-12 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 md:flex-row">
+        <div className="text-center md:text-left">
+          <Link href="/" className="font-display text-lg font-bold">
+            Chinnasurya Prasad<span className="text-primary">.</span>
+          </Link>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Software Engineer · Boston, MA
+          </p>
+        </div>
+
+        <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm">
+          {quickLinks.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {l.title}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-1.5">
+          {socialLinks.map((social) => (
+            <a
+              key={social.id}
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.name}
+              className="glass glass-hover grid h-10 w-10 place-items-center rounded-full"
+            >
+              {getIcon(social.icon)}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <p className="mt-8 text-center text-xs text-muted-foreground">
+        © {new Date().getFullYear()} Chinnasurya Prasad Vulavala. Built with Next.js, Tailwind &amp; Framer Motion.
+      </p>
     </footer>
   );
 }
