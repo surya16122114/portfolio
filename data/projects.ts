@@ -1,3 +1,16 @@
+export type ProjectAccent = "violet" | "blue" | "fuchsia" | "emerald" | "amber" | "cyan";
+export type ProjectIcon =
+  | "ai"
+  | "cloud"
+  | "os"
+  | "web"
+  | "movie"
+  | "mic"
+  | "shield"
+  | "chat"
+  | "database"
+  | "server";
+
 export interface Project {
   id: string;
   title: string;
@@ -6,81 +19,150 @@ export interface Project {
   technologies: string[];
   achievements: string[];
   image: string;
+  /** Architecture diagram shown on the card + detail page */
+  architecture?: string;
   github?: string;
   liveUrl?: string;
   featured: boolean;
+  icon?: ProjectIcon;
+  accent?: ProjectAccent;
+  badge?: string;
 }
 
 export const projects: Project[] = [
   {
-    id: "cloud-native-app",
-    title: "Cloud Native Web Application",
-    description: "Deployed a scalable and highly available web application using AWS, Terraform, and GitHub Actions.",
-    longDescription: "Configured network infrastructure on AWS using Terraform, including VPCs, subnets, DNS zones, and firewall rules. Implemented load balancers, auto-scalers, and auto-healing policies to ensure high availability. Designed a CI/CD pipeline with GitHub Actions for automated unit testing and seamless deployment.",
-    technologies: ["AWS", "Terraform", "CI/CD", "GitHub Actions", "Load Balancing", "Auto Scaling"],
-    achievements: [
-      "Provisioned VPCs, subnets, and DNS zones using Terraform",
-      "Configured security groups and firewall rules for controlled access",
-      "Integrated auto-scalers and healing policies to maintain uptime",
-      "Built CI/CD pipeline with GitHub Actions for automated testing and deployment"
+    id: "edurag",
+    title: "EduRAG — AI Learning Platform",
+    description:
+      "Production RAG education platform with a Mixture-of-Experts routing layer on GPT-4o-mini, integrated directly into Canvas via LTI 1.3. Built at Humanitarians AI.",
+    longDescription:
+      "EduRAG is the AI education platform I build at Humanitarians AI. It runs a Retrieval-Augmented Generation pipeline with a custom Mixture-of-Experts (MoE) routing layer on top of GPT-4o-mini — student queries are routed to specialist modes and grounded with vector-searched textbook sources before inference. It plugs straight into the LMS through LTI 1.3 and Canvas integration, with OIDC-based SSO, automatic student provisioning, and grade synchronization via the Assignment & Grade Services. Backend in Python/FastAPI, frontend in React.",
+    technologies: [
+      "Python",
+      "FastAPI",
+      "RAG",
+      "Mixture-of-Experts",
+      "GPT-4o-mini",
+      "LangChain",
+      "Vector Search",
+      "LTI 1.3",
+      "Canvas",
+      "React",
     ],
-    //image: "/images/projects/cloud-native/cloud-native.jpg",
-    image:"/images/projects/cloud-native/cloud-native.jpg",
-    github:"https://github.com/chinnasuryaprasad1612/tf-aws-infra",
-    featured: true
+    achievements: [
+      "Built a RAG pipeline with a custom Mixture-of-Experts routing layer on GPT-4o-mini, routing queries to specialist modes with vector-searched textbook grounding",
+      "Architected LTI 1.3 + Canvas integration with OIDC-based SSO and student provisioning",
+      "Implemented grade synchronization via Canvas Assignment & Grade Services",
+    ],
+    image: "/images/projects/edurag/Edurag.png",
+    architecture: "/images/projects/edurag/architecture.svg",
+    github: "https://github.com/surya16122114/edurag-ai-assistant",
+    featured: true,
+    icon: "ai",
+    accent: "violet",
+    badge: "Humanitarians AI",
   },
   {
+    id: "distributed-kv",
+    title: "Distributed Key-Value Store",
+    description:
+      "Fault-tolerant distributed key-value store using the Paxos consensus algorithm for strong consistency across replicated nodes.",
+    longDescription:
+      "A fault-tolerant, replicated key-value store engineered in Java. It uses the Paxos consensus algorithm to guarantee strong consistency and agreement across nodes even under failures, with gRPC for fast inter-node and client communication and a Redis-backed layer for hot reads. Containerized with Docker so a multi-node cluster spins up reproducibly, with optimized read/write paths and leader election for availability.",
+    technologies: ["Java", "Paxos", "gRPC", "Docker", "Kubernetes", "Distributed Systems"],
+    achievements: [
+      "Implemented the Paxos consensus protocol for strong consistency across replicated nodes",
+      "Used gRPC for low-latency client and inter-node communication with an efficient caching layer",
+      "Optimized read/write operations by ~30% and orchestrated a reproducible multi-node cluster with Docker + Kubernetes",
+    ],
+    image: "/images/projects/distributed-kv/distributed-kv.png",
+    architecture: "/images/projects/distributed-kv/architecture.svg",
+    github: "https://github.com/surya16122114",
+    featured: true,
+    icon: "database",
+    accent: "emerald",
+    badge: "Systems",
+  },
+  {
+    id: "interview-coach",
+    title: "InterviewCoach AI",
+    description:
+      "Real-time conversational interview agent built on Vertex AI and the Gemini Live API, with prompt orchestration, guardrails, and evaluation metrics.",
+    longDescription:
+      "InterviewCoach AI is an LLM-based intelligent agent that runs realistic, real-time mock interviews with live conversational feedback. It integrates Google Vertex AI and the Gemini Live API for low-latency voice/chat, with a prompt-orchestration layer that manages interview flow, guardrails to keep responses safe and on-track, and evaluation metrics that score the candidate across communication and technical depth. Python/FastAPI backend with a React frontend.",
+    technologies: ["Python", "FastAPI", "Vertex AI", "Gemini Live API", "LLM", "Agentic AI", "React"],
+    achievements: [
+      "Designed an LLM agent integrating Vertex AI and the Gemini Live API for real-time conversational feedback",
+      "Built a prompt-orchestration layer with guardrails to keep interviews safe and on-track",
+      "Added evaluation metrics scoring candidates on communication and technical depth",
+    ],
+    image: "/images/projects/interview-coach/interview-coach.png",
+    architecture: "/images/projects/interview-coach/architecture.svg",
+    featured: true,
+    icon: "mic",
+    accent: "fuchsia",
+    badge: "Agentic AI",
+  },
+  {
+    id: "cloud-native-app",
+    title: "Cloud-Native Infrastructure on AWS",
+    description:
+      "Highly available AWS platform provisioned end-to-end with Terraform and a GitHub Actions CI/CD pipeline.",
+    longDescription:
+      "Infrastructure-as-code project that automates a production-grade AWS environment with Terraform — VPCs, public/private subnets, route tables, DNS zones, and security groups following best practices. Adds load balancing, auto-scaling, and auto-healing for resilience, plus a GitHub Actions pipeline that runs automated tests and deploys on merge, dramatically shortening deployment time.",
+    technologies: ["AWS", "Terraform", "VPC", "EC2", "S3", "GitHub Actions", "CI/CD", "Auto Scaling"],
+    achievements: [
+      "Provisioned VPCs, subnets, route tables, and DNS zones as reusable Terraform modules",
+      "Configured load balancers, auto-scalers, and auto-healing for ~99.9% uptime",
+      "Built a GitHub Actions CI/CD pipeline that cut deployment time by ~70%",
+    ],
+    image: "/images/projects/cloud-native/cloud-native.jpg",
+    architecture: "/images/projects/cloud-native/architecture.svg",
+    github: "https://github.com/chinnasuryaprasad1612/tf-aws-infra",
+    featured: true,
+    icon: "cloud",
+    accent: "cyan",
+  },
+
+  /* ---- Additional work (All Projects page) ---- */
+  {
     id: "movie-booking-system",
-    title: "Popcorn Pal",
-    description: "A full-stack platform for browsing movies, booking seats, and managing roles using Spring Boot and React.",
-    longDescription: "Built a movie booking platform with Spring Boot and React, allowing users to register, log in, browse movies, and book seats. Integrated JWT-based authentication and role-based access for users, admins, and theater owners. Designed a normalized MySQL schema and used design patterns like Repository, Singleton, and Factory for clean and scalable code.",
+    title: "Popcorn Pal — Movie Booking",
+    description:
+      "Full-stack movie & seat booking platform with JWT auth, role-based access, and a clean, pattern-driven backend.",
+    longDescription:
+      "A movie booking platform built with Spring Boot and React where users register, browse movies, and book seats. Implements JWT-based authentication and role-based access for users, admins, and theater owners, a normalized MySQL schema, and SOLID principles with Repository, Singleton, and Factory patterns for clean, scalable code.",
     technologies: ["Spring Boot", "React", "MySQL", "JWT", "SOLID", "Design Patterns"],
     achievements: [
-      "Implemented JWT-based auth and RBAC for users, admins, and owners",
-      "Followed SOLID principles and applied Repository, Singleton, Factory patterns",
-      "Designed normalized MySQL schema for scalable movie-theater-booking data model"
+      "Implemented JWT auth and RBAC for users, admins, and theater owners",
+      "Applied SOLID with Repository, Singleton, and Factory patterns",
+      "Designed a normalized MySQL schema for the booking domain",
     ],
-    image:"/images/projects/popcornpal/popcornpal.jpg",
+    image: "/images/projects/popcornpal/popcornpal.jpg",
+    architecture: "/images/projects/movie-booking-system/architecture.svg",
     github: "https://github.com/surya16122114/movie-management",
-    featured: true
+    featured: false,
+    icon: "movie",
+    accent: "amber",
   },
   {
     id: "student-accommodation",
     title: "Roomies Radar",
-    description: "Built a real-time accommodation portal with PWA features, WebSockets, and modern state management.",
-    longDescription: "Developed a progressive web application with RESTful APIs using Express.js and MongoDB to manage user profiles, property listings, and chat data. The frontend was built using React and TypeScript, with responsive design and seamless navigation. Integrated Redux for efficient state handling and WebSockets for real-time communication. Leveraged PWA capabilities and experimental Fugu APIs for an installable, native-like experience and enhanced device-level features.",
-    technologies: [
-      "Express.js", "MongoDB", "React", "TypeScript", "Redux", "WebSockets",
-      "PWA", "Fugu APIs", "Service Workers", "IndexedDB"
-    ],
+    description:
+      "Real-time student accommodation PWA with WebSocket chat, Redux state, offline support, and Fugu device APIs.",
+    longDescription:
+      "A progressive web app for student housing with RESTful Express.js + MongoDB APIs for profiles, listings, and chat. Built with React + TypeScript and Redux for state and WebSockets for real-time messaging, with PWA offline support and caching. Hit a 95% message delivery rate and cut unnecessary re-renders by ~50% through careful Redux state design.",
+    technologies: ["React", "TypeScript", "Express.js", "MongoDB", "Redux", "WebSockets", "PWA"],
     achievements: [
-      "Developed REST APIs to manage user profiles, listings, and chat data",
-      "Used WebSockets for real-time messaging and instant updates",
-      "Implemented Redux for optimized and scalable state management",
-      "Enhanced UX with PWA features like offline support, installability, and caching",
-      "Explored Fugu APIs (e.g., file system access, clipboard) for native-like capabilities"
+      "Built REST APIs for profiles, listings, and chat with real-time WebSocket messaging",
+      "Reached a 95% message delivery rate with offline-first PWA caching",
+      "Cut unnecessary re-renders by ~50% via Redux state management",
     ],
-    //image: "/images/projects/student-accommodation/student-accommodation.jpg",
-    image:"/images/projects/roomies-radar/roomies-radar.jpg",
-    github:"https://github.com/surya16122114/roomies-radar",
-    featured: true
+    image: "/images/projects/roomies-radar/roomies-radar.jpg",
+    architecture: "/images/projects/student-accommodation/architecture.svg",
+    github: "https://github.com/surya16122114/roomies-radar",
+    featured: false,
+    icon: "chat",
+    accent: "fuchsia",
   },
-  {
-    id: "edurag",
-    title: "EduRAG - AI-Powered Learning Platform",
-    description: "Built an intelligent learning platform with RAG system using LangChain, ChromaDB, and OpenAI APIs, deployed on AWS infrastructure.",
-    longDescription: "Developed a comprehensive AI-powered learning platform that leverages Retrieval-Augmented Generation (RAG) to provide adaptive Q&A aligned with learner progress. Built the RAG system using Python with LangChain framework, ChromaDB vector database, and OpenAI APIs, implementing document upload processing and semantic embeddings. Implemented data pipelines with Airflow for extraction, transformation, and ingestion of educational documents, automating indexing and preprocessing workflows. Deployed the full-stack application with FastAPI backend and React frontend on AWS infrastructure using Terraform, utilizing Bedrock for LLM hosting, EC2 for compute, and S3 for document storage.",
-    technologies: [
-      "Python", "LangChain", "ChromaDB", "OpenAI", "Airflow", "FastAPI", 
-      "React", "AWS", "Bedrock", "EC2", "S3", "Terraform", "RAG", "Vector Database"
-    ],
-    achievements: [
-      "Built RAG system using Python with LangChain framework, ChromaDB vector database, and OpenAI APIs, implementing document upload processing and semantic embeddings for adaptive Q&A aligned with learner progress",
-      "Implemented data pipelines with Airflow for extraction, transformation, and ingestion of educational documents, automating indexing and preprocessing workflows",
-      "Deployed full stack application with FastAPI backend and React frontend on AWS (Bedrock for LLM hosting, EC2 for compute, S3 for document storage) using Terraform"
-    ],
-    image: "/images/projects/edurag/Edurag.png",
-    github: "https://github.com/surya16122114/immigration-ai-assistant",
-    featured: true
-  }
 ];

@@ -3,21 +3,21 @@ import { ClientLayout } from "./client-layout";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Chinnasurya Prasad | Full Stack Developer",
-  description: "Full Stack Developer & Machine Learning Enthusiast with expertise in Next.js, React, and blockchain technologies.",
+  title: "Chinnasurya Prasad | Software Engineer",
+  description: "Software engineer specializing in scalable web apps, cloud infrastructure, distributed systems, and applied AI. Ex-Optum (UnitedHealth Group), MS @ Northeastern.",
   metadataBase: new URL("https://chinnasuryaprasad.com"),
-  
+
   // Basic metadata
   applicationName: "Chinnasurya Prasad Portfolio",
   authors: [{ name: "Chinnasurya Prasad" }],
-  keywords: ["Full Stack Developer", "Web3", "Blockchain", "Next.js", "React", "Machine Learning"],
-  
+  keywords: ["Software Engineer", "Full Stack", "Distributed Systems", "Cloud", "AWS", "AI", "Next.js", "React", "Java"],
+
   openGraph: {
     type: "website",
     url: "https://chinnasuryaprasad.com",
-    title: "Chinnasurya Prasad | Full Stack Developer",
-    description: "Full Stack Developer & Blockchain and Machine Learning Enthusiast with expertise in Next.js, React, and blockchain technologies.",
-    siteName: "Chinnassurya Prasad",
+    title: "Chinnasurya Prasad | Software Engineer",
+    description: "Software engineer — scalable web apps, cloud infrastructure, distributed systems, and applied AI.",
+    siteName: "Chinnasurya Prasad",
     locale: "en_US",
     images: [
       {

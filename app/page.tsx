@@ -1,17 +1,15 @@
 import { Hero } from "@/components/home/hero";
+import { Stats } from "@/components/home/stats";
 import { FeaturedProjects } from "@/components/home/featured-projects";
 import { SkillsShowcase } from "@/components/home/skills-showcase";
-// import { Achievements } from "@/components/home/achievements";
-import { Testimonials } from "@/components/home/testimonials";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex min-h-screen flex-col">
       <Hero />
+      <Stats />
       <FeaturedProjects />
       <SkillsShowcase />
-      {/* <Achievements /> */}
-      <Testimonials />
     </div>
   );
 }

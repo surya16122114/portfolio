@@ -1,86 +1,64 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TechIcon } from "@/components/tech-icon";
-import { Badge } from "@/components/ui/badge";
-import { skills, SkillCategory } from "@/data/skills";
+import { skills, type SkillCategory } from "@/data/skills";
 
+const allSkills = (Object.keys(skills) as SkillCategory[]).flatMap((c) => skills[c]);
+
+// Split into rows for alternating marquee directions
+const rowCount = 3;
+const rows = Array.from({ length: rowCount }, (_, r) =>
+  allSkills.filter((_, i) => i % rowCount === r)
+);
+
+function Pill({ logoKey, name }: { logoKey: string; name: string }) {
+  return (
+    <span className="glass flex shrink-0 items-center gap-2.5 rounded-full px-4 py-2.5 text-sm">
+      <TechIcon logoKey={logoKey} name={name} className="h-5 w-5" />
+      <span className="whitespace-nowrap text-foreground/90">{name}</span>
+    </span>
+  );
+}
 
 export function SkillsShowcase() {
-  const [selectedCategory, setSelectedCategory] = useState<SkillCategory>("Languages");
-  const categories = Object.keys(skills) as SkillCategory[];
-
   return (
-    <section className="py-12 md:py-24">
-      <div className="container px-4 md:px-6 mx-auto max-w-6xl text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-col items-center justify-center space-y-4 text-center"
-        >
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Technical Skills
-          </h2>
-          <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            My expertise across various technologies and tools
-          </p>
-        </motion.div>
+    <section className="overflow-hidden py-20">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="mx-auto mb-10 max-w-6xl px-6 text-center"
+      >
+        <p className="mb-2 font-mono text-sm text-primary">{"// toolbox"}</p>
+        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+          Technologies I work with
+        </h2>
+        <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+          Languages, frameworks, and tools I reach for across the stack.
+        </p>
+      </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-8 md:mt-12"
-        >
-          <Tabs defaultValue="Languages" 
-            value={selectedCategory}
-            onValueChange={(value) => setSelectedCategory(value as SkillCategory)}
-            className="w-full">
-            <div className="flex justify-center mb-8">
-              <TabsList className="flex flex-wrap gap-2 h-auto">
-                {categories.map((category) => (
-                  <TabsTrigger
-                    key={category}
-                    value={category}
-                    className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-                  >
-                    {category}
-                  </TabsTrigger>
+      <div className="marquee-mask flex flex-col gap-3">
+        {rows.map((row, r) => {
+          const doubled = [...row, ...row];
+          return (
+            <div key={r} className="marquee-row">
+              <div
+                className="marquee-track"
+                style={{
+                  animation: `var(${r % 2 === 0 ? "--animate-marquee" : "--animate-marquee-reverse"})`,
+                  animationDuration: `${34 + r * 6}s`,
+                }}
+              >
+                {doubled.map((skill, i) => (
+                  <Pill key={`${skill.name}-${i}`} logoKey={skill.logoKey} name={skill.name} />
                 ))}
-              </TabsList>
+              </div>
             </div>
-            
-            {categories.map((category) => (
-              <TabsContent key={category} value={category} className="w-full">
-                <div className="bg-muted/50 rounded-lg p-6">
-                  <div className="flex flex-wrap gap-3 justify-center">
-                    {skills[category].map((skill, index) => (
-                      <motion.div
-                        key={skill.name}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3, delay: index * 0.05 }}
-                      >
-                    <Badge 
-                        variant="outline" 
-                        className="text-sm py-2 px-4 bg-background hover:bg-accent transition-colors flex items-center gap-2"
-                        >
-                        <TechIcon logoKey={skill.logoKey} name={skill.name} className="h-5 w-5" />
-                        {skill.name}
-                    </Badge>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              </TabsContent>
-            ))}
-          </Tabs>
-        </motion.div>
+          );
+        })}
       </div>
     </section>
   );
