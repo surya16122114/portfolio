@@ -84,6 +84,27 @@ export const projects: Project[] = [
     badge: "Systems",
   },
   {
+    id: "os-kernel",
+    title: "Custom OS Kernel",
+    description:
+      "A custom operating-system kernel built from scratch in x86 Assembly, C, and C++ — process scheduling, memory management, and OOP driver abstractions.",
+    longDescription:
+      "A from-scratch operating-system kernel implemented in x86 Assembly, C, and C++. A custom Assembly bootloader hands off to a C/C++ kernel that provides core system services: a process scheduler for multitasking, memory management (paging and a kernel heap), and interrupt / I/O handling. Hardware devices — VGA text output, keyboard, timer, and I/O ports — are exposed through clean, OOP-based driver abstractions in C++.",
+    technologies: ["x86 Assembly", "C", "C++", "OOP", "OS Dev", "Process Scheduling", "Memory Management"],
+    achievements: [
+      "Built a custom x86 Assembly bootloader and a C/C++ kernel from scratch",
+      "Implemented process scheduling, paging-based memory management, and a kernel heap",
+      "Handled interrupts and I/O through OOP-based C++ driver abstractions (VGA, keyboard, timer)",
+    ],
+    image: "/images/projects/os-kernel/os-kernel.png",
+    architecture: "/images/projects/os-kernel/architecture.svg",
+    github: "https://github.com/surya16122114/SuryaOS",
+    featured: true,
+    icon: "os",
+    accent: "blue",
+    badge: "Low-level",
+  },
+  {
     id: "interview-coach",
     title: "InterviewCoach AI",
     description:
