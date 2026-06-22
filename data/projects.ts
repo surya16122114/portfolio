@@ -31,6 +31,36 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "contextpack",
+    title: "ContextPack",
+    description:
+      "OpenAI-compatible proxy that losslessly compresses LLM context via a negotiated session codebook — cut tokens, keep answers.",
+    longDescription:
+      "ContextPack is an OpenAI-compatible proxy + library that compresses the context you send to any LLM (OpenAI, Anthropic, or any OpenAI-compatible API). Its signature feature is a negotiated session codebook: it proposes a shared abbreviation dictionary and the model confirms each symbol before it's used, so compression is lossless — unlike one-sided compressors that just throw bytes away. It adds content-aware compressors for JSON, code, logs, and prose, lazy references for huge blobs, a token-budget optimizer with semantic dedup, and a live analytics dashboard. Usable four ways — HTTP proxy, Python library, CLI, or MCP server — with bring-your-own-key per request. Pure Python, no native or ML binaries.",
+    technologies: [
+      "Python",
+      "FastAPI",
+      "OpenAI API",
+      "Anthropic",
+      "MCP",
+      "LangChain",
+      "LLM",
+      "Benchmarking",
+    ],
+    achievements: [
+      "Designed a negotiated session codebook that compresses context losslessly — the model confirms each symbol — reaching 57–60% token savings at 100% accuracy on the codebook path",
+      "Built content-aware compressors (JSON, code, logs, prose), lazy references, and a token-budget optimizer with semantic dedup",
+      "Shipped 4 usage modes — HTTP proxy, Python library, CLI, and MCP server — with a live savings dashboard, benchmarked on GSM8K, SQuAD v2, and TruthfulQA",
+    ],
+    image: "/images/projects/contextpack/contextpack.png",
+    architecture: "/images/projects/contextpack/architecture.svg",
+    github: "https://github.com/surya16122114/contextpack",
+    featured: true,
+    icon: "server",
+    accent: "cyan",
+    badge: "LLM Infra",
+  },
+  {
     id: "edurag",
     title: "EduRAG — AI Learning Platform",
     description:
