@@ -107,7 +107,7 @@ export const projects: Project[] = [
     ],
     image: "/images/projects/distributed-kv/distributed-kv.png",
     architecture: "/images/projects/distributed-kv/architecture.svg",
-    github: "https://github.com/surya16122114",
+    github: "https://github.com/surya16122114/distributed-kv-store",
     featured: true,
     icon: "database",
     accent: "emerald",
