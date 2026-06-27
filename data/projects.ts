@@ -64,9 +64,9 @@ export const projects: Project[] = [
     id: "edurag",
     title: "EduRAG — AI Learning Platform",
     description:
-      "Production RAG education platform with a Mixture-of-Experts routing layer on GPT-4o-mini, integrated directly into Canvas via LTI 1.3. Built at Humanitarians AI.",
+      "RAG-powered learning platform with a Mixture-of-Experts routing layer on GPT-4o-mini, integrated directly into Canvas via LTI 1.3.",
     longDescription:
-      "EduRAG is the AI education platform I build at Humanitarians AI. It runs a Retrieval-Augmented Generation pipeline with a custom Mixture-of-Experts (MoE) routing layer on top of GPT-4o-mini — student queries are routed to specialist modes and grounded with vector-searched textbook sources before inference. It plugs straight into the LMS through LTI 1.3 and Canvas integration, with OIDC-based SSO, automatic student provisioning, and grade synchronization via the Assignment & Grade Services. Backend in Python/FastAPI, frontend in React.",
+      "EduRAG is an AI learning platform I built. It runs a Retrieval-Augmented Generation pipeline with a custom Mixture-of-Experts (MoE) routing layer on top of GPT-4o-mini — student queries are routed to specialist modes and grounded with vector-searched textbook sources before inference. It plugs straight into the LMS through LTI 1.3 and Canvas integration, with OIDC-based SSO, automatic student provisioning, and grade synchronization via the Assignment & Grade Services. Backend in Python/FastAPI, frontend in React.",
     technologies: [
       "Python",
       "FastAPI",
@@ -90,7 +90,7 @@ export const projects: Project[] = [
     featured: true,
     icon: "ai",
     accent: "violet",
-    badge: "Humanitarians AI",
+    badge: "GenAI",
   },
   {
     id: "distributed-kv",
