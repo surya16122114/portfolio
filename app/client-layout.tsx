@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { Inter as FontSans } from "next/font/google";
 import localFont from "next/font/local";
 import { cn } from "@/lib/utils";
@@ -28,6 +29,10 @@ const fontDisplay = localFont({
 });
 
 export function ClientLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  // The homepage runs the self-contained "surya.sys" UI with its own nav, footer, and background.
+  const isSystemPage = pathname === "/";
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -44,14 +49,14 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
           enableSystem={false}
           disableTransitionOnChange
         >
-          <BackgroundFx />
+          {!isSystemPage && <BackgroundFx />}
           <SmoothScrollProvider>
             <div className="relative flex min-h-screen flex-col">
-              <Navbar />
+              {!isSystemPage && <Navbar />}
               <main className="flex-1">{children}</main>
-              <Footer />
+              {!isSystemPage && <Footer />}
             </div>
-            <ScrollToTop />
+            {!isSystemPage && <ScrollToTop />}
             <ScrollProgress />
             <SpeedInsights />
             <Analytics />
