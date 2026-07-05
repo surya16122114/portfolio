@@ -31,12 +31,42 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "contextpack",
+    title: "ContextPack",
+    description:
+      "OpenAI-compatible proxy that losslessly compresses LLM context via a negotiated session codebook — cut tokens, keep answers.",
+    longDescription:
+      "ContextPack is an OpenAI-compatible proxy + library that compresses the context you send to any LLM (OpenAI, Anthropic, or any OpenAI-compatible API). Its signature feature is a negotiated session codebook: it proposes a shared abbreviation dictionary and the model confirms each symbol before it's used, so compression is lossless — unlike one-sided compressors that just throw bytes away. It adds content-aware compressors for JSON, code, logs, and prose, lazy references for huge blobs, a token-budget optimizer with semantic dedup, and a live analytics dashboard. Usable four ways — HTTP proxy, Python library, CLI, or MCP server — with bring-your-own-key per request. Pure Python, no native or ML binaries.",
+    technologies: [
+      "Python",
+      "FastAPI",
+      "OpenAI API",
+      "Anthropic",
+      "MCP",
+      "LangChain",
+      "LLM",
+      "Benchmarking",
+    ],
+    achievements: [
+      "Designed a negotiated session codebook that compresses context losslessly — the model confirms each symbol — reaching 57–60% token savings at 100% accuracy on the codebook path",
+      "Built content-aware compressors (JSON, code, logs, prose), lazy references, and a token-budget optimizer with semantic dedup",
+      "Shipped 4 usage modes — HTTP proxy, Python library, CLI, and MCP server — with a live savings dashboard, benchmarked on GSM8K, SQuAD v2, and TruthfulQA",
+    ],
+    image: "/images/projects/contextpack/contextpack.png",
+    architecture: "/images/projects/contextpack/architecture.svg",
+    github: "https://github.com/surya16122114/contextpack",
+    featured: true,
+    icon: "server",
+    accent: "cyan",
+    badge: "LLM Infra",
+  },
+  {
     id: "edurag",
     title: "EduRAG — AI Learning Platform",
     description:
-      "Production RAG education platform with a Mixture-of-Experts routing layer on GPT-4o-mini, integrated directly into Canvas via LTI 1.3. Built at Humanitarians AI.",
+      "RAG-powered learning platform with a Mixture-of-Experts routing layer on GPT-4o-mini, integrated directly into Canvas via LTI 1.3.",
     longDescription:
-      "EduRAG is the AI education platform I build at Humanitarians AI. It runs a Retrieval-Augmented Generation pipeline with a custom Mixture-of-Experts (MoE) routing layer on top of GPT-4o-mini — student queries are routed to specialist modes and grounded with vector-searched textbook sources before inference. It plugs straight into the LMS through LTI 1.3 and Canvas integration, with OIDC-based SSO, automatic student provisioning, and grade synchronization via the Assignment & Grade Services. Backend in Python/FastAPI, frontend in React.",
+      "EduRAG is an AI learning platform I built. It runs a Retrieval-Augmented Generation pipeline with a custom Mixture-of-Experts (MoE) routing layer on top of GPT-4o-mini — student queries are routed to specialist modes and grounded with vector-searched textbook sources before inference. It plugs straight into the LMS through LTI 1.3 and Canvas integration, with OIDC-based SSO, automatic student provisioning, and grade synchronization via the Assignment & Grade Services. Backend in Python/FastAPI, frontend in React.",
     technologies: [
       "Python",
       "FastAPI",
@@ -60,7 +90,7 @@ export const projects: Project[] = [
     featured: true,
     icon: "ai",
     accent: "violet",
-    badge: "Humanitarians AI",
+    badge: "GenAI",
   },
   {
     id: "distributed-kv",
@@ -77,11 +107,32 @@ export const projects: Project[] = [
     ],
     image: "/images/projects/distributed-kv/distributed-kv.png",
     architecture: "/images/projects/distributed-kv/architecture.svg",
-    github: "https://github.com/surya16122114",
+    github: "https://github.com/surya16122114/distributed-kv-store",
     featured: true,
     icon: "database",
     accent: "emerald",
     badge: "Systems",
+  },
+  {
+    id: "os-kernel",
+    title: "Custom OS Kernel",
+    description:
+      "A custom operating-system kernel built from scratch in x86 Assembly, C, and C++ — process scheduling, memory management, and OOP driver abstractions.",
+    longDescription:
+      "A from-scratch operating-system kernel implemented in x86 Assembly, C, and C++. A custom Assembly bootloader hands off to a C/C++ kernel that provides core system services: a process scheduler for multitasking, memory management (paging and a kernel heap), and interrupt / I/O handling. Hardware devices — VGA text output, keyboard, timer, and I/O ports — are exposed through clean, OOP-based driver abstractions in C++.",
+    technologies: ["x86 Assembly", "C", "C++", "OOP", "OS Dev", "Process Scheduling", "Memory Management"],
+    achievements: [
+      "Built a custom x86 Assembly bootloader and a C/C++ kernel from scratch",
+      "Implemented process scheduling, paging-based memory management, and a kernel heap",
+      "Handled interrupts and I/O through OOP-based C++ driver abstractions (VGA, keyboard, timer)",
+    ],
+    image: "/images/projects/os-kernel/os-kernel.png",
+    architecture: "/images/projects/os-kernel/architecture.svg",
+    github: "https://github.com/surya16122114/SuryaOS",
+    featured: true,
+    icon: "os",
+    accent: "blue",
+    badge: "Low-level",
   },
   {
     id: "interview-coach",

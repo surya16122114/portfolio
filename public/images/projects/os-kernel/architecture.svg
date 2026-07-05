@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 430" width="820" height="430" role="img" aria-label="Custom OS kernel architecture diagram">
+  <style>
+    text{font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif}
+    .t{fill:#e8e9f0;font-size:14px;font-weight:600}
+    .s{fill:#9aa0b4;font-size:11px}
+    .lbl{fill:#60a5fa;font-size:11px;font-weight:600;letter-spacing:.12em}
+    .n{fill:rgba(255,255,255,.035);stroke:rgba(255,255,255,.13);stroke-width:1}
+    .a{fill:rgba(96,165,250,.12);stroke:rgba(96,165,250,.5);stroke-width:1}
+    .k{fill:rgba(96,165,250,.06);stroke:rgba(96,165,250,.4);stroke-width:1}
+  </style>
+
+  <text x="80" y="34" class="lbl">CUSTOM OS KERNEL · LAYERED ARCHITECTURE</text>
+
+  <!-- user space -->
+  <g><rect class="n" x="80" y="46" width="660" height="44" rx="12"/><text class="t" x="410" y="73" text-anchor="middle">User programs · shell</text></g>
+
+  <!-- drivers -->
+  <g><rect class="a" x="80" y="102" width="660" height="62" rx="12"/>
+    <text class="t" x="410" y="127" text-anchor="middle">Device drivers — C++ OOP abstractions</text>
+    <text class="s" x="410" y="147" text-anchor="middle">VGA / screen · keyboard · timer · I/O ports</text>
+  </g>
+
+  <!-- kernel core -->
+  <rect class="k" x="80" y="176" width="660" height="108" rx="14"/>
+  <text x="96" y="197" class="lbl">KERNEL CORE</text>
+  <g><rect class="n" x="98" y="206" width="196" height="62" rx="11"/><text class="t" x="196" y="232" text-anchor="middle">Process scheduler</text><text class="s" x="196" y="250" text-anchor="middle">multitasking</text></g>
+  <g><rect class="n" x="312" y="206" width="196" height="62" rx="11"/><text class="t" x="410" y="232" text-anchor="middle">Memory management</text><text class="s" x="410" y="250" text-anchor="middle">paging · heap</text></g>
+  <g><rect class="n" x="526" y="206" width="196" height="62" rx="11"/><text class="t" x="624" y="232" text-anchor="middle">Interrupts / ISR</text><text class="s" x="624" y="250" text-anchor="middle">I/O handling</text></g>
+
+  <!-- bootloader -->
+  <g><rect class="n" x="80" y="296" width="660" height="44" rx="12"/><text class="t" x="410" y="323" text-anchor="middle">Bootloader — x86 Assembly</text></g>
+
+  <!-- hardware -->
+  <g><rect class="n" x="80" y="352" width="660" height="50" rx="12"/><text class="t" x="410" y="377" text-anchor="middle">x86 hardware</text><text class="s" x="410" y="394" text-anchor="middle">CPU · RAM · devices</text></g>
+</svg>
