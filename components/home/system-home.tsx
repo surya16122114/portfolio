@@ -29,10 +29,10 @@ const SVC: Record<
     flow: [{ label: "any LLM client" }, { label: "contextpack proxy", hot: true }, { label: "upstream LLM" }],
     deps: ["sk-python", "sk-fastapi", "sk-llms", "sk-agentic"],
   },
-  edurag: {
-    svc: "svc/edurag",
-    flow: [{ label: "canvas LMS" }, { label: "RAG backend", hot: true }, { label: "MoE · gpt-4o-mini" }],
-    deps: ["sk-python", "sk-fastapi", "sk-rag", "sk-moe", "sk-llms"],
+  mockloop: {
+    svc: "svc/mockloop",
+    flow: [{ label: "candidate voice" }, { label: "pipecat loop", hot: true }, { label: "evaluator · debrief" }],
+    deps: ["sk-python", "sk-fastapi", "sk-llms", "sk-agentic", "sk-next"],
   },
   "distributed-kv": {
     svc: "svc/distributed-kv",
