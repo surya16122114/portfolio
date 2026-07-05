@@ -19,6 +19,11 @@ const SVC: Record<
   string,
   { svc: string; flow: { label: string; hot?: boolean }[]; deps: string[] }
 > = {
+  prefixmesh: {
+    svc: "svc/prefixmesh",
+    flow: [{ label: "inference fleet" }, { label: "prefix-cache ring", hot: true }, { label: "paxos directory ×3" }],
+    deps: ["sk-go", "sk-grpc", "sk-kafka", "sk-docker"],
+  },
   contextpack: {
     svc: "svc/contextpack",
     flow: [{ label: "any LLM client" }, { label: "contextpack proxy", hot: true }, { label: "upstream LLM" }],
@@ -57,6 +62,7 @@ const SKILL_GROUPS: { name: string; chips: { id: string; label: string }[] }[] =
     chips: [
       { id: "sk-java", label: "Java" },
       { id: "sk-python", label: "Python" },
+      { id: "sk-go", label: "Go" },
       { id: "sk-ccpp", label: "C / C++" },
       { id: "sk-asm", label: "x86 Assembly" },
       { id: "sk-ts", label: "TypeScript" },
@@ -110,7 +116,7 @@ const SKILL_GROUPS: { name: string; chips: { id: string; label: string }[] }[] =
 const BOOT_LINES: { cls: string; text: string }[] = [
   { cls: "hd", text: "surya.sys — control plane v2.0" },
   { cls: "ok", text: "[ ok ] gateway            online" },
-  { cls: "ok", text: "[ ok ] svc/projects       online · 6 replicas" },
+  { cls: "ok", text: "[ ok ] svc/projects       online · 7 replicas" },
   { cls: "ok", text: "[ ok ] svc/experience     online · 4 records" },
   { cls: "ok", text: "[ ok ] svc/skills         online" },
   { cls: "ok", text: "[ ok ] svc/contact        online" },

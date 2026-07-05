@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ClientLayout } from "./client-layout";
 import "./globals.css";
+import "./system-ui.css";
 
 export const metadata: Metadata = {
   title: "Chinnasurya Prasad | Software Engineer",

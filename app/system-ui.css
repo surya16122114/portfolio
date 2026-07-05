@@ -193,6 +193,36 @@
 .sys .hudpanel .in { max-width: 1140px; margin: 0 auto; padding: 10px 26px; font-family: var(--mono); font-size: 11.5px; color: var(--mut); }
 .sys .hudpanel .in div { padding: 1px 0; }
 
+.sys .pagewrap { max-width: 1140px; margin: 0 auto; padding: 44px 26px 70px; position: relative; z-index: 1; min-height: 70vh; }
+.sys .nav-links a.on { color: var(--cy); }
+.sys .ptitle { font-size: clamp(30px, 3.6vw, 40px); font-weight: 700; color: #f2f4ff; font-family: var(--disp); line-height: 1.15; margin: 0 0 8px; }
+.sys .chip img, .sys .chip svg { width: 14px; height: 14px; display: inline-block; vertical-align: -2px; margin-right: 6px; }
+.sys .avatar { position: relative; width: 176px; height: 176px; border-radius: 16px; overflow: hidden; border: 1px solid var(--line2); box-shadow: 0 0 40px rgba(139, 127, 247, 0.18); }
+.sys .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.sys .prose { color: var(--mut); }
+.sys .prose .hl { color: var(--ink); }
+.sys .prose p { margin: 0 0 14px; }
+.sys .about-grid { display: grid; grid-template-columns: 200px 1fr; gap: 32px; align-items: start; margin: 26px 0 10px; }
+.sys .edu-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.sys .gpa { display: inline-block; font-family: var(--mono); font-size: 11.5px; color: var(--cy); border: 1px solid #14424d; background: #081f26; border-radius: 5px; padding: 2px 8px; margin-top: 10px; }
+.sys .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 26px; }
+.sys .fpill { font-family: var(--mono); font-size: 11.5px; color: var(--mut); border: 1px solid var(--line); background: var(--inset); border-radius: 99px; padding: 4px 12px; cursor: pointer; transition: all 0.18s ease; }
+.sys .fpill:hover { border-color: var(--line2); color: var(--ink); }
+.sys .fpill.on { border-color: var(--vi); color: #e4dfff; background: #191430; }
+.sys .grid3 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.sys .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 26px; }
+.sys .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 13px; padding: 24px; }
+.sys .crow { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px dashed var(--line); font-size: 14px; color: var(--mut); }
+.sys .crow:last-child { border-bottom: none; }
+.sys .crow a { font-family: var(--mono); font-size: 13px; }
+.sys .rdesc { color: var(--dim); font-size: 13px; padding: 0 18px 10px; margin-top: -6px; }
+@media (max-width: 900px) {
+  .sys .about-grid { grid-template-columns: 1fr; }
+  .sys .edu-grid { grid-template-columns: 1fr; }
+  .sys .grid3 { grid-template-columns: 1fr; }
+  .sys .contact-grid { grid-template-columns: 1fr; }
+}
+
 .sys .rv { opacity: 0; transform: translateY(16px); transition: all 0.6s ease; }
 .sys .rv.vis { opacity: 1; transform: none; }
 
