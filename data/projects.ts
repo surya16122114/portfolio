@@ -63,6 +63,40 @@ export const projects: Project[] = [
     badge: "Distributed Systems",
   },
   {
+    id: "mockloop",
+    title: "MockLoop — Voice-First AI Mock Interviewer",
+    description:
+      "Full-duplex voice interviewer that cross-examines your resume: semantic turn detection, a whiteboard and live code editor it reads as structured context, and a rubric evaluator that scores transcripts with verbatim evidence.",
+    longDescription:
+      "MockLoop runs mock interviews as real phone calls: the interviewer rings you, yields when you interrupt, and waits while you think (Silero VAD + semantic smart-turn end-of-turn detection on a LiveKit/Pipecat pipeline with Deepgram STT and Cartesia TTS). Upload a resume and an extraction pass builds a claims graph — every claim paired with the hardest fair probe — which the behavioral round quotes back at you. An Excalidraw whiteboard and Monaco code editor stream into the running conversation as structured text (scene shapes and code snapshots, zero vision tokens), so the interviewer reacts to your actual boxes and variable names. After each session, a heavyweight evaluator scores the transcript against an explicit rubric with quoted evidence and counted hints, feeding a per-user readiness trend. The LLM layer is provider-routed (Gemini / Claude / OpenAI) behind one config switch, with accounts, per-user history, and credit-based billing.",
+    technologies: [
+      "Python",
+      "Pipecat",
+      "LiveKit",
+      "WebRTC",
+      "Deepgram",
+      "Cartesia",
+      "Gemini",
+      "FastAPI",
+      "Next.js",
+      "Stripe",
+    ],
+    achievements: [
+      "Full-duplex voice loop with barge-in and semantic end-of-turn: interruptions cancel speech mid-sentence, thinking pauses don't get talked over (smart-turn v3 + Silero VAD)",
+      "TTFT-benchmarked model routing — chat-tuned models open a turn in ~0.8s vs ~1.8s for reasoning tiers, so a fast model holds the conversation while a heavyweight scores transcripts asynchronously via structured outputs",
+      "Resume → claims graph: every resume claim gets a bar-raiser probe; the debrief flags claims the candidate couldn't defend",
+      "Whiteboard and code editor reach the interviewer as structured text injected into the live pipeline — boxes, arrows, and identifiers by name, with zero vision tokens",
+      "Evidence-anchored rubric debriefs: four competencies with verbatim quotes, every hint counted, readiness trended across sessions",
+      "Six company-flavored interviewer personas with distinct voices; four round types up to a full 45-minute loop (behavioral → coding → system design)",
+    ],
+    image: "/images/projects/mockloop/architecture.svg",
+    architecture: "/images/projects/mockloop/architecture.svg",
+    featured: true,
+    icon: "mic",
+    accent: "fuchsia",
+    badge: "Voice AI",
+  },
+  {
     id: "contextpack",
     title: "ContextPack",
     description:
@@ -133,26 +167,6 @@ export const projects: Project[] = [
     icon: "os",
     accent: "blue",
     badge: "Low-level",
-  },
-  {
-    id: "interview-coach",
-    title: "InterviewCoach AI",
-    description:
-      "Real-time conversational interview agent built on Vertex AI and the Gemini Live API, with prompt orchestration, guardrails, and evaluation metrics.",
-    longDescription:
-      "InterviewCoach AI is an LLM-based intelligent agent that runs realistic, real-time mock interviews with live conversational feedback. It integrates Google Vertex AI and the Gemini Live API for low-latency voice/chat, with a prompt-orchestration layer that manages interview flow, guardrails to keep responses safe and on-track, and evaluation metrics that score the candidate across communication and technical depth. Python/FastAPI backend with a React frontend.",
-    technologies: ["Python", "FastAPI", "Vertex AI", "Gemini Live API", "LLM", "Agentic AI", "React"],
-    achievements: [
-      "Designed an LLM agent integrating Vertex AI and the Gemini Live API for real-time conversational feedback",
-      "Built a prompt-orchestration layer with guardrails to keep interviews safe and on-track",
-      "Added evaluation metrics scoring candidates on communication and technical depth",
-    ],
-    image: "/images/projects/interview-coach/interview-coach.png",
-    architecture: "/images/projects/interview-coach/architecture.svg",
-    featured: true,
-    icon: "mic",
-    accent: "fuchsia",
-    badge: "Agentic AI",
   },
   {
     id: "edurag",

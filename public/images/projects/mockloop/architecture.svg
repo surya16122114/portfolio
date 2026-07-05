@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 430" width="820" height="430" role="img" aria-label="MockLoop architecture diagram">
+  <style>
+    text{font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif}
+    .t{fill:#e8e9f0;font-size:14px;font-weight:600}
+    .s{fill:#9aa0b4;font-size:11px}
+    .lbl{fill:#e879f9;font-size:11px;font-weight:600;letter-spacing:.12em}
+    .n{fill:rgba(255,255,255,.035);stroke:rgba(255,255,255,.13);stroke-width:1}
+    .a{fill:rgba(232,121,249,.12);stroke:rgba(232,121,249,.5);stroke-width:1}
+    .e{fill:none;stroke:#7c8194;stroke-width:1.4}
+  </style>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M1 1L9 5L1 9" fill="none" stroke="#7c8194" stroke-width="1.6" stroke-linecap="round"/>
+    </marker>
+  </defs>
+
+  <text class="lbl" x="20" y="26">CANDIDATE</text>
+  <rect class="n" x="20" y="36" width="210" height="344" rx="12"/>
+  <rect class="n" x="35" y="78" width="180" height="46" rx="8"/>
+  <text class="t" x="45" y="97">Mic + speaker</text>
+  <text class="s" x="45" y="113">full-duplex audio</text>
+  <rect class="n" x="35" y="148" width="180" height="46" rx="8"/>
+  <text class="t" x="45" y="167">Whiteboard</text>
+  <text class="s" x="45" y="183">Excalidraw scene</text>
+  <rect class="n" x="35" y="218" width="180" height="46" rx="8"/>
+  <text class="t" x="45" y="237">Code editor</text>
+  <text class="s" x="45" y="253">Monaco · 5 languages</text>
+  <rect class="n" x="35" y="288" width="180" height="46" rx="8"/>
+  <text class="t" x="45" y="307">Resume upload</text>
+  <text class="s" x="45" y="323">PDF / DOCX</text>
+
+  <rect class="n" x="270" y="80" width="120" height="50" rx="8"/>
+  <text class="t" x="282" y="100">LiveKit</text>
+  <text class="s" x="282" y="116">WebRTC SFU</text>
+  <line class="e" x1="232" y1="95" x2="266" y2="95" marker-end="url(#ar)"/>
+  <line class="e" x1="268" y1="115" x2="234" y2="115" marker-end="url(#ar)"/>
+  <line class="e" x1="392" y1="105" x2="426" y2="105" marker-end="url(#ar)"/>
+
+  <text class="lbl" x="430" y="26">REALTIME LOOP · PIPECAT</text>
+  <rect class="n" x="430" y="36" width="375" height="184" rx="12"/>
+  <rect class="n" x="445" y="60" width="105" height="52" rx="8"/>
+  <text class="t" x="453" y="80">Silero VAD</text>
+  <text class="s" x="453" y="96">smart-turn v3</text>
+  <rect class="n" x="570" y="60" width="105" height="52" rx="8"/>
+  <text class="t" x="578" y="80">Deepgram</text>
+  <text class="s" x="578" y="96">streaming STT</text>
+  <rect class="a" x="695" y="60" width="100" height="52" rx="8"/>
+  <text class="t" x="703" y="80">Interviewer</text>
+  <text class="s" x="703" y="96">LLM · routed</text>
+  <line class="e" x1="552" y1="86" x2="566" y2="86" marker-end="url(#ar)"/>
+  <line class="e" x1="677" y1="86" x2="691" y2="86" marker-end="url(#ar)"/>
+  <rect class="n" x="445" y="146" width="105" height="52" rx="8"/>
+  <text class="t" x="453" y="166">Cartesia</text>
+  <text class="s" x="453" y="182">streaming TTS</text>
+  <rect class="n" x="570" y="146" width="225" height="52" rx="8"/>
+  <text class="t" x="578" y="166">Stage machine</text>
+  <text class="s" x="578" y="182">advance_stage tool · hint ladder</text>
+  <path class="e" d="M745 114 V172 H557" marker-end="url(#ar)"/>
+  <path class="e" d="M443 172 H330 V134" marker-end="url(#ar)"/>
+
+  <rect class="n" x="270" y="262" width="120" height="58" rx="8"/>
+  <text class="t" x="282" y="281">FastAPI</text>
+  <text class="s" x="282" y="296">auth · sessions</text>
+  <text class="s" x="282" y="310">claims graph</text>
+  <path class="e" d="M232 241 H250 V291 H266" marker-end="url(#ar)"/>
+  <line class="e" x1="232" y1="311" x2="266" y2="311" marker-end="url(#ar)"/>
+  <path class="e" d="M392 285 H660 V224" marker-end="url(#ar)"/>
+  <text class="s" x="400" y="278">context injection · zero vision tokens</text>
+
+  <line class="e" x1="500" y1="222" x2="500" y2="296" marker-end="url(#ar)"/>
+  <text class="s" x="508" y="262">transcript</text>
+  <rect class="a" x="430" y="300" width="190" height="60" rx="8"/>
+  <text class="t" x="442" y="322">Evaluator LLM</text>
+  <text class="s" x="442" y="338">rubric · structured outputs</text>
+  <rect class="n" x="650" y="300" width="150" height="60" rx="8"/>
+  <text class="t" x="662" y="322">Debrief</text>
+  <text class="s" x="662" y="338">evidence · trend</text>
+  <line class="e" x1="622" y1="330" x2="646" y2="330" marker-end="url(#ar)"/>
+  <text class="lbl" x="430" y="390">ASYNC EVALUATION</text>
+</svg>
