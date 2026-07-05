@@ -1,14 +1,9 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import { Inter as FontSans } from "next/font/google";
 import localFont from "next/font/local";
 import { cn } from "@/lib/utils";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
-import { BackgroundFx } from "@/components/layout/background-fx";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ScrollToTop } from "@/components/shared/scroll-to-top";
 import { ScrollProgress } from "@/components/shared/scroll-progress";
 import { SmoothScrollProvider } from "@/components/shared/smooth-scroll-provider";
 import { Analytics } from "@vercel/analytics/react";
@@ -29,10 +24,8 @@ const fontDisplay = localFont({
 });
 
 export function ClientLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
-  // The homepage runs the self-contained "surya.sys" UI with its own nav, footer, and background.
-  const isSystemPage = pathname === "/";
-
+  // Every route now ships the self-contained "surya.sys" chrome (nav, footer, background):
+  // the homepage renders its own, inner routes get it from app/(routes)/layout.tsx.
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -49,14 +42,10 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
           enableSystem={false}
           disableTransitionOnChange
         >
-          {!isSystemPage && <BackgroundFx />}
           <SmoothScrollProvider>
             <div className="relative flex min-h-screen flex-col">
-              {!isSystemPage && <Navbar />}
               <main className="flex-1">{children}</main>
-              {!isSystemPage && <Footer />}
             </div>
-            {!isSystemPage && <ScrollToTop />}
             <ScrollProgress />
             <SpeedInsights />
             <Analytics />
