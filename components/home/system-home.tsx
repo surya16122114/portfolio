@@ -705,7 +705,7 @@ export function SystemHome() {
         </section>
 
         <footer className="sfoot">
-          © 2026 chinnasurya prasad vulavala · surya.sys — the site is the system · built with next.js
+          © 2026 Chinnasurya Prasad Vulavala · built with Next.js
         </footer>
       </div>
 
