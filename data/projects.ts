@@ -31,6 +31,38 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "prefixmesh",
+    title: "PrefixMesh — Distributed LLM Prefix-Cache Mesh",
+    description:
+      "Distributed prefix-cache mesh for LLM inference — content-addressed KV blocks on a consistent-hash ring with a Paxos control plane, RF=2 replication, and a Kafka-driven predictive prefetcher.",
+    longDescription:
+      "PrefixMesh shares computed prefix/KV-cache blocks across an LLM inference fleet, so repeated prompt prefixes (system prompts, RAG context, few-shot examples) skip prefill everywhere — not just on the node that first computed them. Stateless gRPC gateways route content-addressed block IDs over a consistent-hash ring to cache nodes with paged arenas and cost-aware eviction. A 3-replica directory running multi-decree Paxos owns membership, epoch-numbered rings, and rebalance leases, while a Kafka event plane learns access patterns and warms caches predictively — strictly off the hot path. The invariant that drives the design: every failure mode is a cache miss, never a wrong answer. Written in Go; KV-cache blocks are simulated as opaque keyed blobs, so the distributed-systems layer is demonstrated and measured without requiring GPUs.",
+    technologies: [
+      "Go",
+      "Paxos",
+      "gRPC",
+      "Kafka",
+      "Consistent Hashing",
+      "Prometheus",
+      "Grafana",
+      "Docker",
+    ],
+    achievements: [
+      "85.8% hit rate and 87% prefill compute saved at steady state (4 nodes, RF=2) with sub-millisecond match p50 — measured by a self-verifying make bench suite",
+      "3-replica multi-decree Paxos directory: membership changes as consensus commits, quorum suspicion-exchange before eviction, and epoch-numbered rings with WRONG_EPOCH staleness rejection",
+      "Killed a cache node mid-run: Paxos heals the ring in ~2s with zero errors and no visible hit-rate dip — a static ring collapses to 7.7% forever",
+      "Kafka event plane feeds a predictive prefetcher that warms caches ahead of demand, strictly off the hot path; every consumer is idempotent by content addressing",
+      "Paxos core tested under a simulated lossy/reordering network with concurrent proposers (go test -race); the full warm loop runs in CI without a broker",
+    ],
+    image: "/images/projects/prefixmesh/architecture.svg",
+    architecture: "/images/projects/prefixmesh/architecture.svg",
+    github: "https://github.com/surya16122114/prefixmesh",
+    featured: true,
+    icon: "database",
+    accent: "cyan",
+    badge: "Distributed Systems",
+  },
+  {
     id: "contextpack",
     title: "ContextPack",
     description:
@@ -59,38 +91,6 @@ export const projects: Project[] = [
     icon: "server",
     accent: "cyan",
     badge: "LLM Infra",
-  },
-  {
-    id: "edurag",
-    title: "EduRAG — AI Learning Platform",
-    description:
-      "RAG-powered learning platform with a Mixture-of-Experts routing layer on GPT-4o-mini, integrated directly into Canvas via LTI 1.3.",
-    longDescription:
-      "EduRAG is an AI learning platform I built. It runs a Retrieval-Augmented Generation pipeline with a custom Mixture-of-Experts (MoE) routing layer on top of GPT-4o-mini — student queries are routed to specialist modes and grounded with vector-searched textbook sources before inference. It plugs straight into the LMS through LTI 1.3 and Canvas integration, with OIDC-based SSO, automatic student provisioning, and grade synchronization via the Assignment & Grade Services. Backend in Python/FastAPI, frontend in React.",
-    technologies: [
-      "Python",
-      "FastAPI",
-      "RAG",
-      "Mixture-of-Experts",
-      "GPT-4o-mini",
-      "LangChain",
-      "Vector Search",
-      "LTI 1.3",
-      "Canvas",
-      "React",
-    ],
-    achievements: [
-      "Built a RAG pipeline with a custom Mixture-of-Experts routing layer on GPT-4o-mini, routing queries to specialist modes with vector-searched textbook grounding",
-      "Architected LTI 1.3 + Canvas integration with OIDC-based SSO and student provisioning",
-      "Implemented grade synchronization via Canvas Assignment & Grade Services",
-    ],
-    image: "/images/projects/edurag/Edurag.png",
-    architecture: "/images/projects/edurag/architecture.svg",
-    github: "https://github.com/surya16122114/edurag-ai-assistant",
-    featured: true,
-    icon: "ai",
-    accent: "violet",
-    badge: "GenAI",
   },
   {
     id: "distributed-kv",
@@ -153,6 +153,38 @@ export const projects: Project[] = [
     icon: "mic",
     accent: "fuchsia",
     badge: "Agentic AI",
+  },
+  {
+    id: "edurag",
+    title: "EduRAG — AI Learning Platform",
+    description:
+      "RAG-powered learning platform with a Mixture-of-Experts routing layer on GPT-4o-mini, integrated directly into Canvas via LTI 1.3.",
+    longDescription:
+      "EduRAG is an AI learning platform I built. It runs a Retrieval-Augmented Generation pipeline with a custom Mixture-of-Experts (MoE) routing layer on top of GPT-4o-mini — student queries are routed to specialist modes and grounded with vector-searched textbook sources before inference. It plugs straight into the LMS through LTI 1.3 and Canvas integration, with OIDC-based SSO, automatic student provisioning, and grade synchronization via the Assignment & Grade Services. Backend in Python/FastAPI, frontend in React.",
+    technologies: [
+      "Python",
+      "FastAPI",
+      "RAG",
+      "Mixture-of-Experts",
+      "GPT-4o-mini",
+      "LangChain",
+      "Vector Search",
+      "LTI 1.3",
+      "Canvas",
+      "React",
+    ],
+    achievements: [
+      "Built a RAG pipeline with a custom Mixture-of-Experts routing layer on GPT-4o-mini, routing queries to specialist modes with vector-searched textbook grounding",
+      "Architected LTI 1.3 + Canvas integration with OIDC-based SSO and student provisioning",
+      "Implemented grade synchronization via Canvas Assignment & Grade Services",
+    ],
+    image: "/images/projects/edurag/Edurag.png",
+    architecture: "/images/projects/edurag/architecture.svg",
+    github: "https://github.com/surya16122114/edurag-ai-assistant",
+    featured: true,
+    icon: "ai",
+    accent: "violet",
+    badge: "GenAI",
   },
   {
     id: "cloud-native-app",

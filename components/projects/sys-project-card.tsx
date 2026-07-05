@@ -3,6 +3,7 @@ import type { Project } from "@/data/projects";
 
 /* Optional per-project mini architecture flow shown in the card body */
 export const PROJECT_FLOWS: Record<string, { label: string; hot?: boolean }[]> = {
+  prefixmesh: [{ label: "inference fleet" }, { label: "prefix-cache ring", hot: true }, { label: "paxos directory ×3" }],
   contextpack: [{ label: "any LLM client" }, { label: "contextpack proxy", hot: true }, { label: "upstream LLM" }],
   edurag: [{ label: "canvas LMS" }, { label: "RAG backend", hot: true }, { label: "MoE · gpt-4o-mini" }],
   "distributed-kv": [{ label: "client" }, { label: "paxos ×3", hot: true }, { label: "redis hot reads" }],
