@@ -2,7 +2,7 @@
 
 A modern, dark, HeroUI-style personal portfolio built with Next.js 15, Tailwind CSS v4, and Framer Motion — glassmorphism, animated gradients, a live skills marquee, count-up stats, and per-project architecture diagrams.
 
-🔗 **Live:** [chinnasuryaprasad.com](https://www.chinnasuryaprasad.com/)
+🔗 **Live:** [chinnasuryaprasad-portfolio-website.vercel.app](https://chinnasuryaprasad-portfolio-website.vercel.app/)
 
 ## ✨ Highlights
 
