@@ -19,6 +19,12 @@ export interface SocialLink {
       icon: "linkedin"
     },
     {
+      id: "leetcode",
+      name: "LeetCode",
+      url: "https://leetcode.com/u/surya_1612/",
+      icon: "leetcode"
+    },
+    {
       id: "email",
       name: "Email",
       url: "mailto:chinnasuryaprasad2001@gmail.com",

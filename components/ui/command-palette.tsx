@@ -8,6 +8,7 @@ import { Search, ArrowRight, Home, User, Briefcase, Code, Mail, Github, Linkedin
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { socialLinks } from "@/data/social";
+import { LeetCodeIcon } from "@/components/icons/leetcode";
 
 // Define navItems directly instead of importing
 const navItems = [
@@ -43,6 +44,8 @@ const getSocialIcon = (iconName: string) => {
       return <Github className="mr-2 h-4 w-4" />;
     case "linkedin":
       return <Linkedin className="mr-2 h-4 w-4" />;
+    case "leetcode":
+      return <LeetCodeIcon className="mr-2 h-4 w-4" />;
     case "mail":
       return <Mail className="mr-2 h-4 w-4" />;
     case "phone":

@@ -6,6 +6,7 @@ import { ArrowRight, Download, Github, Linkedin, Mail, Phone } from "lucide-reac
 import Image from "next/image";
 import Link from "next/link";
 import { socialLinks } from "@/data/social";
+import { LeetCodeIcon } from "@/components/icons/leetcode";
 
 const roles = [
   "Full-Stack Engineer",
@@ -21,6 +22,8 @@ function getIcon(icon: string) {
       return <Github className={cls} />;
     case "linkedin":
       return <Linkedin className={cls} />;
+    case "leetcode":
+      return <LeetCodeIcon className={cls} />;
     case "mail":
       return <Mail className={cls} />;
     case "phone":
