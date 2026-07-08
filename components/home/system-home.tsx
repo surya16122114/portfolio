@@ -13,6 +13,7 @@ const jbm = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500", "700"], 
 const EMAIL = "chinnasuryaprasad2001@gmail.com";
 const GITHUB = socialLinks.find((s) => s.id === "github")?.url ?? "https://github.com/surya16122114";
 const LINKEDIN = socialLinks.find((s) => s.id === "linkedin")?.url ?? "#";
+const LEETCODE = socialLinks.find((s) => s.id === "leetcode")?.url ?? "https://leetcode.com/u/surya_1612/";
 
 /* Per-project presentation extras keyed by data/projects.ts ids */
 const SVC: Record<
@@ -429,6 +430,9 @@ export function SystemHome() {
               <a className="btn" href={LINKEDIN} target="_blank" rel="noopener">
                 linkedin
               </a>
+              <a className="btn" href={LEETCODE} target="_blank" rel="noopener">
+                leetcode
+              </a>
             </div>
           </div>
           <div className="topo">
@@ -703,6 +707,9 @@ export function SystemHome() {
                 </a>
                 <a className="btn" href={LINKEDIN} target="_blank" rel="noopener">
                   linkedin
+                </a>
+                <a className="btn" href={LEETCODE} target="_blank" rel="noopener">
+                  leetcode
                 </a>
                 <span className={"copied" + (copied ? " on" : "")}>✓ copied</span>
               </div>
